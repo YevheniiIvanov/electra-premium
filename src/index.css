@@ -1,0 +1,66 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #000000;
+  --color-surface: #f5f5f7;
+  --color-muted: #86868b;
+  --color-accent: #0071e3;
+  --color-accent-soft: #e8f3ff;
+
+  /* Legacy aliases → map to light UI */
+  --color-volt-50: #ffffff;
+  --color-volt-100: #f5f5f7;
+  --color-volt-200: #e8e8ed;
+  --color-volt-300: #d2d2d7;
+  --color-volt-400: #86868b;
+  --color-volt-500: #6e6e73;
+  --color-volt-600: #515154;
+  --color-volt-700: #424245;
+  --color-volt-800: #2d2d2f;
+  --color-volt-900: #1d1d1f;
+  --color-volt-950: #000000;
+
+  --color-electric-400: #0071e3;
+  --color-electric-500: #0071e3;
+  --color-electric-300: #2997ff;
+
+  --color-aurum-300: #86868b;
+  --color-aurum-400: #6e6e73;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply m-0 min-h-svh bg-white text-[#1d1d1f] antialiased;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    letter-spacing: -0.011em;
+  }
+
+  #root {
+    @apply min-h-svh w-full;
+  }
+
+  ::selection {
+    @apply bg-[#0071e3]/15 text-ink;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
