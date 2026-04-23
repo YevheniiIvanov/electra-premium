@@ -2,12 +2,13 @@
 
 ## GitHub Pages (publiczny podgląd strony)
 
-1. W repozytorium: **Settings** → **Pages** → **Build and deployment** → **Source: GitHub Actions**.
-2. Wypchnij commit na gałąź **`main`**. Workflow [`.github/workflows/deploy-github-pages.yml`](.github/workflows/deploy-github-pages.yml) zbuduje projekt i opublikuje katalog `dist`.
-3. Adres strony: **`https://<login>.github.io/<nazwa-repozytorium>/`** (dla `electra-premium` będzie to `.../electra-premium/`).
-4. Lokalny test buildu z tą samą ścieżką co na Pages:  
-   `VITE_BASE_PATH=/nazwa-repo/ npm run build`  
-   potem: `npx vite preview --base /nazwa-repo/`
+1. **Settings** → **Actions** → **General** → sekcja *Workflow permissions* → włącz **Read and write permissions** (żeby workflow mógł wypchnąć gałąź `gh-pages`).
+2. **Settings** → **Pages** → **Build and deployment** → **Source: Deploy from a branch** → Branch **`gh-pages`**, folder **`/ (root)`**.  
+   (Nie wybieraj „GitHub Actions” jako źródła — ten projekt publikuje się na gałąź `gh-pages`.)
+3. Wypchnij zmiany na **`main`** (albo uruchom workflow ręcznie: **Actions** → **Deploy to GitHub Pages** → **Run workflow**).
+4. Adres: **`https://<login>.github.io/<nazwa-repo>/`** — np. `https://yevheniivanov.github.io/electra-premium/` (login musi być **dokładnie** taki jak na GitHubie).
+5. Lokalny test:  
+   `VITE_BASE_PATH=/nazwa-repo/ npm run build` → `npx vite preview --base /nazwa-repo/`
 
 ---
 
