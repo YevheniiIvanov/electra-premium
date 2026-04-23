@@ -1,5 +1,16 @@
 # React + TypeScript + Vite
 
+## GitHub Pages (publiczny podgląd strony)
+
+1. W repozytorium: **Settings** → **Pages** → **Build and deployment** → **Source: GitHub Actions**.
+2. Wypchnij commit na gałąź **`main`**. Workflow [`.github/workflows/deploy-github-pages.yml`](.github/workflows/deploy-github-pages.yml) zbuduje projekt i opublikuje katalog `dist`.
+3. Adres strony: **`https://<login>.github.io/<nazwa-repozytorium>/`** (dla `electra-premium` będzie to `.../electra-premium/`).
+4. Lokalny test buildu z tą samą ścieżką co na Pages:  
+   `VITE_BASE_PATH=/nazwa-repo/ npm run build`  
+   potem: `npx vite preview --base /nazwa-repo/`
+
+---
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
