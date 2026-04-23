@@ -1,54 +1,73 @@
 import { Reveal } from './ui/Reveal'
 
-const standards = [
+const items = [
   {
-    title: 'Proces',
-    text: 'Jasny plan prac i etapy kontrolne — bez zgadywania na budowie.',
+    title: 'Точний прорахунок',
+    text: 'Без прихованих «сюрпризів» у процесі — спочатку фіксуємо обсяг і логіку робіт.',
   },
   {
-    title: 'Precyzja',
-    text: 'Montaż punktowy, równo i spójnie z linią wnętrza.',
+    title: 'Прозора комунікація',
+    text: 'Зрозумілі статуси на об\'єкті: що зроблено, що далі, які варіанти за потреби.',
   },
   {
-    title: 'Bezpieczeństwo',
-    text: 'Normy, selekcja zabezpieczeń, dokumentacja pod odbiór.',
+    title: 'Акуратний монтаж',
+    text: 'Лінії, підключення й маркування — щоб результат виглядав охайно навіть у технічних зонах.',
   },
   {
-    title: 'Komunikacja',
-    text: 'Jeden kierownik projektu i przewidywalny kontakt.',
+    title: 'Сучасні рішення',
+    text: 'Підбір матеріалів і комплектації під надійність і комфорт експлуатації.',
+  },
+  {
+    title: 'Робота за нормами',
+    text: 'Відповідність вимогам безпеки та коректна збірка захисту й заземлення.',
+  },
+  {
+    title: 'Пунктуальність',
+    text: 'Поважаємо ваш час і графік ремонту — домовляємось і виконуємо узгоджені вікна.',
+  },
+  {
+    title: 'Чистота після робіт',
+    text: 'Прибираємо зону монтажу — залишаємо простір готовим для наступних етапів.',
+  },
+  {
+    title: 'Індивідуальний підхід',
+    text: 'Кожен об\'єкт у Черкасах та області — окремий сценарій навантажень і побажань.',
   },
 ] as const
 
 export function Standard() {
   return (
     <section
-      id="standard"
-      className="scroll-mt-24 bg-surface px-6 py-28 md:scroll-mt-28 md:px-10 md:py-36"
+      id="standart"
+      className="scroll-mt-24 bg-white px-6 py-28 md:scroll-mt-28 md:px-10 md:py-36"
       aria-labelledby="standard-heading"
     >
       <div className="mx-auto max-w-[980px]">
         <Reveal>
-          <p className="text-center text-[12px] font-medium uppercase tracking-[0.24em] text-muted">
-            Standard
+          <p className="text-center text-[12px] font-medium uppercase tracking-[0.22em] text-muted">
+            Чому нас обирають у Черкасах
           </p>
           <h2
             id="standard-heading"
-            className="mx-auto mt-6 max-w-[680px] text-balance text-center text-[32px] font-semibold leading-[1.15] tracking-[-0.03em] text-ink md:text-[40px]"
+            className="mx-auto mt-6 max-w-[760px] text-balance text-center text-[32px] font-semibold leading-[1.15] tracking-[-0.03em] text-ink md:text-[40px]"
           >
-            Tak pracuje się z najlepszymi.
+            Стандарт, який цінують вимогливі клієнти
           </h2>
+          <p className="mx-auto mt-6 max-w-[620px] text-center text-[17px] font-light leading-relaxed text-[#424245]">
+            Якість видно в дрібницях: від правильного згину жили до охайного щита.
+            Саме так працює преміальний електромонтаж у Черкасах — без зайвого шуму,
+            але з повагою до вашого простору.
+          </p>
         </Reveal>
 
-        <div className="mt-20 grid gap-12 sm:grid-cols-2 sm:gap-x-16 sm:gap-y-20">
-          {standards.map((item, i) => (
-            <Reveal key={item.title} delay={0.06 * i}>
-              <div>
-                <h3 className="text-[21px] font-semibold tracking-[-0.02em] text-ink">
+        <div className="mt-16 grid gap-5 sm:grid-cols-2">
+          {items.map((item, i) => (
+            <Reveal key={item.title} delay={0.04 * (i % 4)}>
+              <div className="h-full rounded-2xl border border-black/[0.06] bg-surface/70 p-7 md:p-8">
+                <h3 className="text-[19px] font-semibold tracking-[-0.02em] text-ink">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-[17px] font-light leading-relaxed text-[#424245]">
-                  {item.text}
-                </p>
+                <p className="mt-3 text-[15px] leading-relaxed text-muted">{item.text}</p>
               </div>
             </Reveal>
           ))}
