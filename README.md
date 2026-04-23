@@ -2,13 +2,12 @@
 
 ## GitHub Pages (publiczny podgląd strony)
 
-1. **Settings** → **Actions** → **General** → sekcja *Workflow permissions* → włącz **Read and write permissions** (żeby workflow mógł wypchnąć gałąź `gh-pages`).
-2. **Settings** → **Pages** → **Build and deployment** → **Source: Deploy from a branch** → Branch **`gh-pages`**, folder **`/ (root)`**.  
-   (Nie wybieraj „GitHub Actions” jako źródła — ten projekt publikuje się na gałąź `gh-pages`.)
-3. Wypchnij zmiany na **`main`** (albo uruchom workflow ręcznie: **Actions** → **Deploy to GitHub Pages** → **Run workflow**).
-4. Adres: **`https://<login>.github.io/<nazwa-repo>/`** — np. `https://yevheniivanov.github.io/electra-premium/` (login musi być **dokładnie** taki jak na GitHubie).
-5. Lokalny test:  
-   `VITE_BASE_PATH=/nazwa-repo/ npm run build` → `npx vite preview --base /nazwa-repo/`
+1. **Settings** → **Pages** → **Build and deployment** → **Source: GitHub Actions** (jak w szablonie GitHuba).
+2. **Settings** → **Actions** → **General** → *Workflow permissions* → zazwyczaj wystarczy domyślne; jeśli build się wyłoży na uprawnieniach, włącz **Read and write**.
+3. Wypchnij commit na **`main`**, albo **Actions** → **Deploy Vite site to Pages** → **Run workflow**.
+4. Po zielonym workflow (1–3 min) strona: **`https://<login>.github.io/<nazwa-repo>/`**  
+   Użyj **dokładnego loginu z profilu** (np. `yevheniiivanov` vs `yevheniivanov` to **różne** adresy — literówka = 404).
+5. Lokalny test: `VITE_BASE_PATH=/nazwa-repo/ npm run build` → `npx vite preview --base /nazwa-repo/`
 
 ---
 
