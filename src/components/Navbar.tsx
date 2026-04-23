@@ -38,11 +38,11 @@ export function Navbar() {
     >
       <div className="mx-auto flex h-[52px] max-w-[1200px] items-center justify-between px-6 lg:h-14 lg:px-8">
         <a
-          href="#start"
+          href="#hero"
           className="text-[17px] font-semibold tracking-tight text-[#1d1d1f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
           onClick={(e) => {
             e.preventDefault()
-            scrollToId('start')
+            scrollToId('hero')
             setOpen(false)
           }}
         >
@@ -50,8 +50,8 @@ export function Navbar() {
         </a>
 
         <nav
-          className="hidden items-center gap-10 lg:flex"
-          aria-label="Główna nawigacja"
+          className="hidden items-center gap-8 xl:gap-10 lg:flex"
+          aria-label="Головна навігація"
         >
           {NAV_LINKS.map((link) => (
             <a
@@ -75,7 +75,7 @@ export function Navbar() {
             whileTap={{ scale: 0.98 }}
             onClick={() => scrollToId('kontakt')}
           >
-            Umów konsultację
+            Замовити консультацію
           </motion.button>
 
           <button
@@ -83,7 +83,7 @@ export function Navbar() {
             className="inline-flex h-10 w-10 items-center justify-center rounded-full text-[#1d1d1f] lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-menu"
-            aria-label={open ? 'Zamknij menu' : 'Otwórz menu'}
+            aria-label={open ? 'Закрити меню' : 'Відкрити меню'}
             onClick={() => setOpen((v) => !v)}
           >
             {open ? <X className="h-5 w-5 stroke-[1.5]" /> : <Menu className="h-5 w-5 stroke-[1.5]" />}
@@ -101,7 +101,7 @@ export function Navbar() {
             transition={{ duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
             className="overflow-hidden border-t border-black/[0.06] bg-white lg:hidden"
           >
-            <nav className="flex flex-col px-6 py-6" aria-label="Menu mobilne">
+            <nav className="flex flex-col px-6 py-6" aria-label="Мобільне меню">
               {NAV_LINKS.map((link, i) => (
                 <motion.a
                   key={link.id}
@@ -130,7 +130,7 @@ export function Navbar() {
                   setOpen(false)
                 }}
               >
-                Umów konsultację
+                Безкоштовний прорахунок
               </motion.button>
             </nav>
           </motion.div>

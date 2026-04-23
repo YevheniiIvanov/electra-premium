@@ -1,80 +1,55 @@
+import { ABOUT_IMAGES } from '../constants/media'
 import { Reveal } from './ui/Reveal'
-
-const IMG =
-  'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=85'
-
-const pillars = [
-  {
-    title: 'Normy i dokumentacja',
-    text: 'Pełna zgodność z przepisami oraz protokoły przygotowane pod odbiór.',
-  },
-  {
-    title: 'Estetyka montażu',
-    text: 'Trasy i punkty jak w projekcie architektonicznym — bez kompromisów.',
-  },
-  {
-    title: 'Partner na budowie',
-    text: 'Jeden punkt kontaktu i przewidywalny harmonogram etapów.',
-  },
-] as const
+import { SmartImage } from './ui/SmartImage'
 
 export function About() {
   return (
     <section
-      id="o-nas"
+      id="pro-kompaniyu"
       className="scroll-mt-24 bg-surface px-6 py-28 md:scroll-mt-28 md:px-10 md:py-36"
       aria-labelledby="about-heading"
     >
       <div className="mx-auto grid max-w-[1120px] items-center gap-16 lg:grid-cols-2 lg:gap-24">
         <Reveal>
-          <div className="overflow-hidden rounded-2xl bg-white">
-            <img
-              src={IMG}
-              alt="Nowoczesna architektura — detal ściany i światła"
-              width={1600}
-              height={2133}
+          <div className="overflow-hidden rounded-2xl bg-white shadow-[0_32px_80px_-40px_rgba(0,0,0,0.2)]">
+            <SmartImage
+              sources={[...ABOUT_IMAGES]}
+              alt="Монтаж електрики Черкаси — акуратне підключення та облік у розподільчій шафі"
+              width={1800}
+              height={1200}
               loading="lazy"
               decoding="async"
               className="h-auto w-full object-cover"
-              style={{ aspectRatio: '1600 / 2133', maxHeight: 'min(78vh, 920px)' }}
+              style={{ aspectRatio: '3 / 2' }}
             />
           </div>
         </Reveal>
 
         <div>
           <Reveal>
-            <p className="text-[12px] font-medium uppercase tracking-[0.24em] text-muted">
-              O nas
+            <p className="text-[12px] font-medium uppercase tracking-[0.22em] text-muted">
+              Про компанію
             </p>
             <h2
               id="about-heading"
               className="mt-6 text-[32px] font-semibold leading-[1.12] tracking-[-0.03em] text-ink md:text-[40px]"
             >
-              Technologia w tle.
-              <br />
-              Komfort na pierwszym planie.
+              Електрика без компромісів для Черкас і області
             </h2>
-            <p className="mt-10 max-w-[460px] text-[17px] font-light leading-[1.6] text-[#424245]">
-              Projektujemy instalacje dla domów, apartamentów i przestrzeni
-              komercyjnych — z tym samym podejściem do detalu co do oświetlenia i
-              wykończenia wnętrza.
+            <p className="mt-8 text-[17px] font-light leading-[1.65] text-[#424245]">
+              VOLTUM — це команда електромонтажників, яка працює для власників
+              житла та бізнесу, які очікують не «якось», а правильно: безпечно,
+              охайно і з повагою до архітектури простору. Монтаж електрики
+              Черкаси ми виконуємо за документованими правилами, з чіткими
+              термінами та відкритою комунікацією на кожному етапі.
+            </p>
+            <p className="mt-6 text-[17px] font-light leading-[1.65] text-[#424245]">
+              Дотримуємося норм і ПУЕ, документуємо зміни по об'єкту й залишаємо
+              після себе порядок — щоб ви могли спокійно експлуатувати мережу
+              роками. Електрик у Черкасах має бути не лише швидким, а й
+              передбачуваним: саме на цьому тримається наша репутація.
             </p>
           </Reveal>
-
-          <div className="mt-16 space-y-14">
-            {pillars.map((p, i) => (
-              <Reveal key={p.title} delay={0.06 * (i + 1)}>
-                <div className="border-t border-black/[0.08] pt-10 first:border-0 first:pt-0">
-                  <h3 className="text-[19px] font-semibold tracking-[-0.02em] text-ink">
-                    {p.title}
-                  </h3>
-                  <p className="mt-3 max-w-[440px] text-[15px] leading-relaxed text-muted">
-                    {p.text}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </div>
     </section>
